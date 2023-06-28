@@ -1,0 +1,31 @@
+.menu {
+    background-color: #5B5643;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+}
+
+.divIcone {
+  
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 60%;
+}
+
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.link {
+    color: var(--branco);
+    font-family: var(--font-textos);
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+}

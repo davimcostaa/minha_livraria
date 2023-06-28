@@ -1,0 +1,20 @@
+
+.container {
+    background: #f1d881;
+}
+
+.formulario {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.listagem {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
