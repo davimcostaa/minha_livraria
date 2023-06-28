@@ -20,14 +20,14 @@ const index = () => {
     }, [])
 
     function getAll() {
-        axios.get('api/editoras').then(resultado => {
+        axios.get('api/usuarios').then(resultado => {
             setEditoras(resultado.data)
         })
     }
 
     function excluir(id) {
         if (confirm('Deseja realmente excluir o registro')) {
-            axios.delete('/api/editoras/' + id)
+            axios.delete('/api/usuarios/' + id)
             getAll()
        }
     }
@@ -37,14 +37,14 @@ const index = () => {
         <>
        
             <Menu />
-            <Banner titulo='Editoras' />
+            <Banner titulo='Usuários' />
 
             <section className={styles.container}> 
 
             <section className={styles.listagem}>              
             
 
-            <Link href="/editoras/form/" className='mb-2 btn btn-primary'>
+            <Link href="/usuarios/form/" className='mb-2 btn btn-primary'>
                 <AiFillPlusCircle className='m-1' />
                 Novo
             </Link>

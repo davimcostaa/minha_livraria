@@ -25,6 +25,10 @@ const Menu = () => {
         <Link href={'/livros'} className={styles.link}>
             Livros
         </Link>
+
+        <Link href={'/usuarios'} className={styles.link}>
+            Usuários
+        </Link>
     </div>
 </nav>
   )
