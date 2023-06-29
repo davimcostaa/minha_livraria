@@ -10,41 +10,44 @@ import Menu from '@/components/Menu';
 import Banner from '@/components/Banner';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './form/Autores.module.css'
+import ReactStars from 'react-stars';
 
 const index = () => {
 
-    const [livros, setLivros] = useState([])
+    const [avaliacao, setAvaliacao] = useState([])
 
     useEffect(() => {
         getAll()
     }, [])
 
     function getAll() {
-        axios.get('api/livros/').then(resultado => {
-            setLivros(resultado.data)
+        axios.get('api/avaliacao').then(resultado => {
+            setAvaliacao(resultado.data)
         })
     }
 
     function excluir(id) {
         if (confirm('Deseja realmente excluir o registro')) {
-            axios.delete('/api/livros/' + id)
+            axios.delete('/api/avaliacao/' + id)
             getAll()
        }
     }
+
+    console.log(avaliacao)
 
     return (
 
         <>
        
             <Menu />
-            <Banner titulo='Livros' />
+            <Banner titulo='Avaliações' />
 
             <section className={styles.container}> 
 
             <section className={styles.listagem}>              
             
 
-            <Link href="/livros/form/" className='mb-2 btn btn-primary'>
+            <Link href="/avaliacao/form/" className='mb-2 btn btn-primary'>
                 <AiFillPlusCircle className='m-1' />
                 Novo
             </Link>
@@ -53,22 +56,28 @@ const index = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Nome</th>
-                        <th>Autor</th>
-                        <th>Gênero</th>
+                        <th>Livro</th>
+                        <th>Avaliação</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {livros.map((item) => (
+                    {avaliacao.map((item) => (
                         <tr key={item.id}>
                             <td>
-                                <Link href={'/livros/form/' + item.id}> <FiEdit className='text-primary' /></Link>
+                                <Link href={'/avaliacao/form/' + item.id}> <FiEdit className='text-primary' /></Link>
                                 <BsTrash3 onClick={() => excluir(item.id)} className='text-danger me-4' />
                             </td>
 
                             <td>{item.nome}</td>
-                            <td>{item.autor}</td>
-                            <td>{item.genero}</td>
+                            <td>         
+                                <ReactStars
+                                    count={5}
+                                    value={item.avaliacao}
+                                    edit={false}
+                                    size={40}
+                                    color2={'#ffd700'}
+                                    half={false} /> 
+                            </td>
 
                         </tr>
                     ))}

@@ -18,8 +18,16 @@ const usuariosValidator = {
 
     usuario: {
       required: "Campo obrigatório!!!",
+      minLength: {
+        value: 8,
+        message: 'O mínimo de caracteres é 8'
+      },
+  
+      maxLength: {
+        value: 15,
+        message: 'O máximo de caracteres é 15'
+      }
     }, 
-
 
     email: {
       required: "Campo obrigatório",

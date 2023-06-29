@@ -53,21 +53,22 @@ const index = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Nome da editora</th>
-                        <th>Instagram</th>
+                        <th>Nome </th>
+                        <th>Usuário</th>
+                        <th>Email</th>
                     </tr>
                 </thead>
                 <tbody>
                     {editoras.map((item) => (
                         <tr key={item.id}>
                             <td>
-                                <Link href={'/editoras/form/' + item.id}> <FiEdit className='text-primary' /></Link>
+                                <Link href={'/usuarios/form/' + item.id}> <FiEdit className='text-primary' /></Link>
                                 <BsTrash3 onClick={() => excluir(item.id)} className='text-danger me-4' />
                             </td>
 
                             <td>{item.nome}</td>
-                            <td>{item.instagram}</td>
-
+                            <td>{item.usuario}</td>
+                            <td>{item.email}</td>
 
                         </tr>
                     ))}

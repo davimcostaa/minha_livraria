@@ -13,6 +13,7 @@ import { useForm } from 'react-hook-form'
 import styles from './Autores.module.css'
 import editoraValidator from '@/validators/editoraValidator';
 import usuariosValidator from '@/validators/usuariosValidator';
+import { mask } from 'remask';
 
 const Forms = () => {
 
@@ -64,7 +65,7 @@ const Forms = () => {
 
       <Form.Group className="mb-3" controlId="nome">
           <Form.Label>Nome</Form.Label>
-          <Form.Control isInvalid={errors.nome} type="text" placeholder="Digite o nome da editora" 
+          <Form.Control isInvalid={errors.nome} type="text" placeholder="Digite o seu nome completo" 
               {...register('nome', usuariosValidator.nome)} />
               {
                   errors.nome &&
@@ -74,7 +75,7 @@ const Forms = () => {
 
       <Form.Group className="mb-3" controlId="usuario">
           <Form.Label>Usuário</Form.Label>
-          <Form.Control mask='@AAAAAAAA' isInvalid={errors.usuario} type="text" placeholder="Escolha um usuário" 
+          <Form.Control mask='@AAAAAAAAAAAAAAA' isInvalid={errors.usuario} type="text" placeholder="Escolha um usuário" 
               {...register('usuario', usuariosValidator.usuario)} onChange={handleChange} />
               {
                   errors.usuario &&
@@ -109,7 +110,6 @@ const Forms = () => {
                   <p className='text-danger mt-2'>{errors.instagram.message}</p>
           }
         </Form.Group>
-        
 
         <div className='text-center'>
                     <Button variant="success" onClick={handleSubmit(salvar)}>

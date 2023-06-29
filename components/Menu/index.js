@@ -29,6 +29,14 @@ const Menu = () => {
         <Link href={'/usuarios'} className={styles.link}>
             Usuários
         </Link>
+
+        <Link href={'/avaliacao'} className={styles.link}>
+            Avaliação
+        </Link>
+
+        <Link href={'/dashboard'} className={styles.link}>
+            Dashboard
+        </Link>
     </div>
 </nav>
   )
